@@ -111,3 +111,17 @@ img {
 
 
 } 
+
+
+.cajaBusqueda{
+    background-color: blueviolet;
+    border: solid 1px black;
+
+
+}
+
+.hidden{
+    display: none;
+
+
+}
