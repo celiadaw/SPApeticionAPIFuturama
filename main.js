@@ -1,4 +1,4 @@
-
+//--------------------------VARIABLES/CONSTANTS---------------
 'use strict';
 
 let url = "http://futuramaapi.herokuapp.com/api/characters/";
@@ -7,7 +7,26 @@ let characterGuardado;
 let miEleccion;
 let papelera =[];
 let cajaBusqueda=document.getElementById("cajaBusqueda") ;
-// let todo =[];
+
+
+localStorage.setItem
+localStorage.getItem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//---------------------FUNCTIONS-------------------
 function crearCajaCharacter (character, cajaBusqueda){
   
     let cajaCharacter =document.createElement('div',)
@@ -72,6 +91,7 @@ function recogerQuote (character){
 
 
 function recogerEleccion(character){
+   
     characterGuardado=character;
 let i=0;
 fetch(`${url}${character}`)
@@ -128,14 +148,22 @@ function borrarEleccionPapelera(papelera, eleccion){
 // }
 //-----------------main---------------------------------
 //Botón aceptar
+let busquedaAnterior= localStorage.getItem("character");
+console.log(busquedaAnterior);
+if (busquedaAnterior !=""){
+    recogerEleccion(busquedaAnterior);
+
+localStorage.setItem("character",characterGuardado);
+}else{
 document
     .getElementById('aceptar')
     .addEventListener("click", () =>{
                      recogerEleccion(document
                             .getElementById('optionCharacter').value);
 
+        localStorage.setItem("character",characterGuardado);
 });
-
+}
 //Botón Atrás
 document
     .getElementById('atras')
@@ -152,13 +180,13 @@ document
 document
     .getElementById('limpiar')
     .addEventListener("click", () =>{
-                  console.log("hola");
+             
 
  for (let i = 0; i < papelera.length; i++) {
         
         papelera[i].remove();        
     }
-                
+    localStorage.setItem("character","");            
 });
 
 
