@@ -90,6 +90,7 @@ data.map(item => crearCajaCharacter (item))
 function borrarPapelera(papelera, item) {
 //en el for recorremos todos los elementos que hay en la papelera
 //borramos todos menos el que hemos seleccionado
+// papelera.filter
         for (let i = 0; i < papelera.length; i++) {
             if(papelera[i]!=item )
             papelera[i].remove();        
@@ -103,7 +104,7 @@ function borrarEleccionPapelera(papelera, eleccion){
         if(papelera[i]=eleccion )
         papelera[i].remove();        
     }
-
+//splice??????
 
 }
 
@@ -146,6 +147,18 @@ document
                    cajaBusqueda.classList.add("cajaBusqueda");
 
                 }
+});
+
+document
+    .getElementById('limpiar')
+    .addEventListener("click", () =>{
+                  console.log("hola");
+
+ for (let i = 0; i < papelera.length; i++) {
+        
+        papelera[i].remove();        
+    }
+                
 });
 
 
